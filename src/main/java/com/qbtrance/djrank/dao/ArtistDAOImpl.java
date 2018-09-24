@@ -2,6 +2,7 @@ package com.qbtrance.djrank.dao;
 
 import com.qbtrance.djrank.model.Artist;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -86,5 +87,13 @@ public class ArtistDAOImpl implements ArtistDAO {
 
             rs.close();
             ps.close();
+    }
+
+    // Using JDBCTemplate
+    public int getArtistCount()
+    {
+        JdbcTemplate jdbcTemplate = new JdbcTemplate();
+        String sql = "SELECT * FROM ARTIST";
+        return jdbcTemplate.queryForObject(sql, Integer.class);
     }
 }
