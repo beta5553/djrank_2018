@@ -19,7 +19,7 @@ public class JDBCDerbyDaoImpl {
         JDBCDerbyDaoImpl dbclass = new JDBCDerbyDaoImpl();
 
         try {
-            dbclass.getArtist(2);
+            dbclass.getArtist();
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("User not found"  + e.getMessage());
@@ -28,32 +28,29 @@ public class JDBCDerbyDaoImpl {
 
     /**
      * .
-     * @param id
      * @return
      * @throws SQLException
      * @throws ClassNotFoundException
      * @throws IllegalAccessException
      * @throws InstantiationException
      */
-    public Artist getArtist(int id) throws SQLException, ClassNotFoundException, IllegalAccessException, InstantiationException {
+    public void getArtist() throws SQLException, ClassNotFoundException, IllegalAccessException, InstantiationException {
 
         Connection conn = null;
         String driver = "org.apache.derby.jdbc.ClientDriver";
         Class.forName(driver).newInstance();
         conn = DriverManager.getConnection("jdbc:derby://localhost:1527/db_djrank");
-        PreparedStatement ps = conn.prepareStatement("select * from artist where id = ?");
-        ps.setInt(1, id);
-
-        Artist artist = null;
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM ARTIST");
+        //ps.setInt(1, id);
+        //Artist artist = null;
         ResultSet rs = ps.executeQuery();
 
         if(rs.next()) {
-            System.out.println(rs.getInt("id"));
-            System.out.println(rs.getString("name"));
+            System.out.println(rs.getInt("name"));
+            System.out.println(rs.getString("artist_name"));
         }
 
         rs.close();
         ps.close();
-        return artist;
     }
 }
