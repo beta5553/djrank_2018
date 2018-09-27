@@ -12,5 +12,5 @@ public class DjrankApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DjrankApplication.class, args);
-	}
+}
 }
