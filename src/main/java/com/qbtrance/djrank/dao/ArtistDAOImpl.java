@@ -38,8 +38,9 @@ public class ArtistDAOImpl implements ArtistDAO {
     @Override
     public Artist selectArtist() throws SQLException {
 
+        System.out.println("ArtistDaoImpl.selectArtist()");
         Connection conn = dataSource.getConnection();
-        PreparedStatement ps = conn.prepareStatement("select * from artist where id = ?");
+        PreparedStatement ps = conn.prepareStatement("select * from artist");
 
         Artist artist = null;
         ResultSet rs = ps.executeQuery();

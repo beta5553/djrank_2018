@@ -11,11 +11,11 @@
  </bean>
 
  <!-- Connection pooling with DBCP, TODO: add jars and fix properties. -->
- <bean id="dataSourceDBCP" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+ <!--<bean id="dataSourceDBCP" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
      <property name="driverClassName" value="org.apache.derby.jdbc.ClientDriver" />
      <property name="url" value="jdbc:derby://localhost:1527/db_djrank;create=true" />
      <property name="initialSize" value="" />
      <property name="maxConnections" value="5" />
- </bean>
+ </bean>-->
 
 </beans>

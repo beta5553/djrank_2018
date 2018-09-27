@@ -47,6 +47,7 @@ public class JDBCDerbyDaoImpl {
         Artist artist = null;
         ResultSet rs = ps.executeQuery();
 
+        System.out.println("JDBCDerbyDoaImpl.getArtist");
         if(rs.next()) {
             System.out.println(rs.getInt("id"));
             System.out.println(rs.getString("name"));
